@@ -13,4 +13,4 @@ if ($sslCa && is_file($sslCa)) {
     $options[PDO::MYSQL_ATTR_SSL_CA] = $sslCa;
     $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = true;
 }
-try{$pdo=new PDO($dsn,$db['user'],$db['pass'],$options);}catch(PDOException $e){http_response_code(500);echo 'Database connection failed.';exit;}
+try{$pdo=new PDO($dsn,$db['user'],$db['pass'],$options);}catch(PDOException $e){error_log('Database connection failed: ' . $e->getMessage());http_response_code(500);echo 'Database connection failed.';exit;}
