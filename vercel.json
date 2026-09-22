@@ -1,9 +1,15 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
+    {
+      "source": "/",
+      "destination": "https://urbancat.onrender.com",
+      "permanent": false
+    },
     {
       "source": "/:path*",
       "destination": "https://urbancat.onrender.com/:path*",
-      "permanent": true
+      "permanent": false
     }
   ]
 }
