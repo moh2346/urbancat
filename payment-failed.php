@@ -1,0 +1,5 @@
+<?php require __DIR__.'/includes/bootstrap.php'; $ref=trim($_GET['reference']??''); $pageTitle='Payment Failed — Urban Cats'; ?>
+<!doctype html><html lang="en"><head><?php include __DIR__.'/includes/partials/head.php'; ?></head><body>
+<?php include __DIR__.'/includes/partials/header.php'; ?>
+<main id="main"><div class="container section" style="max-width:640px; text-align:center"><div style="width:64px; height:64px; border-radius:50%; background:#fdf0e8; display:grid; place-items:center; margin:0 auto 1rem">✕</div><h1 class="h2" style="font-family:var(--font-display)">Payment not completed</h1><p class="lead">No cat reserved. You can try again.</p><?php if($ref): ?><p class="muted">Ref: <?= e($ref) ?></p><?php endif; ?><?php $m=flash('error'); if($m): ?><div class="alert alert--error"><?= e($m) ?></div><?php endif; ?><a href="<?= asset('cart.php') ?>" class="btn btn--primary">Back to Cart</a></div></main>
+<?php include __DIR__.'/includes/partials/footer.php'; ?><script type="module" src="<?= asset('assets/js/app.js') ?>"></script></body></html>

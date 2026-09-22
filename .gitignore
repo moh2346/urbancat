@@ -1,0 +1,12 @@
+/reference/verify_archive/
+*.png
+!assets/images/**/*.png
+!assets/images/**/*.webp
+!assets/images/**/*.svg
+!assets/images/**/*.jpg
+/uploads/cats/*
+!/uploads/cats/.htaccess
+!/uploads/cats/index.html
+.env
+.DS_Store
+Thumbs.db

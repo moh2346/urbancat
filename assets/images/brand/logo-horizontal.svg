@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="170" height="40" viewBox="0 0 170 40">
+ <g fill="none">
+  <rect x="4" y="6" width="30" height="28" rx="9" fill="#25231F"/>
+  <path d="M11 18 L15 8 L19 15 L21 15 L25 8 L29 18 L27 26 C22 30 14 30 11 26 Z" fill="#FFFDF9"/>
+  <circle cx="17" cy="19" r="1.6" fill="#25231F"/><circle cx="23" cy="19" r="1.6" fill="#25231F"/>
+  <path d="M18 23 Q20 25 22 23" stroke="#25231F" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+ </g>
+ <g font-family="Cormorant Garamond, Georgia, serif" fill="#25231F">
+  <text x="42" y="20" font-size="15.5" font-weight="700">URBAN<tspan fill="#B79255"> CATS</tspan></text>
+  <text x="42" y="31" font-size="7" letter-spacing=".18em" fill="#746F67" font-family="Manrope, sans-serif">Exceptional companions</text>
+ </g>
+</svg>

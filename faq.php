@@ -1,0 +1,5 @@
+<?php require __DIR__.'/includes/bootstrap.php'; $faqs=$pdo->query("SELECT * FROM faqs WHERE is_published=1 ORDER BY sort_order")->fetchAll(); $pageTitle='FAQ — Urban Cats'; ?>
+<!doctype html><html lang="en"><head><?php include __DIR__.'/includes/partials/head.php'; ?></head><body>
+<?php include __DIR__.'/includes/partials/header.php'; ?>
+<main id="main"><div class="container section" style="max-width:840px"><div class="breadcrumbs"><a href="<?= asset('index.php') ?>">Home</a> / FAQ</div><h1 class="h2" style="font-family:var(--font-display)">FAQ</h1><div style="display:grid; gap:.7rem; margin-top:1rem"><?php foreach($faqs as $i=>$f): ?><div class="faq-item <?= $i===0?'is-open':'' ?>"><button data-faq-btn aria-expanded="<?= $i===0?'true':'false' ?>"><span><?= e($f['question']) ?></span><span><?= $i===0?'−':'+' ?></span></button><div class="answer"><p><?= e($f['answer']) ?></p></div></div><?php endforeach; ?></div></div></main>
+<?php include __DIR__.'/includes/partials/footer.php'; ?><script type="module" src="<?= asset('assets/js/app.js') ?>"></script></body></html>

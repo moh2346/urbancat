@@ -1,0 +1,1 @@
+<?php $s=flash('success');$e=flash('error'); if($s):?><div class="alert alert--success"><?= e($s) ?></div><?php endif; if($e):?><div class="alert alert--error"><?= e($e) ?></div><?php endif; ?>
