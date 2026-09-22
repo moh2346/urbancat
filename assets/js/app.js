@@ -1,11 +1,27 @@
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r)=>[...r.querySelectorAll(s)];
-// header shadow
-const h=$('#siteHeader'); if(h){addEventListener('scroll',()=>{scrollY>8?h.classList.add('is-scrolled'):h.classList.remove('is-scrolled')},{passive:true})}
-// mobile
-const burger=$('#burger'), nav=$('#mobileNav'), closeNav=$('#closeNav');
-function openNav(){burger.setAttribute('aria-expanded','true');nav.hidden=false;requestAnimationFrame(()=>nav.classList.add('is-open'));document.body.style.overflow='hidden'}
-function close(){burger.setAttribute('aria-expanded','false');nav.classList.remove('is-open');document.body.style.overflow='';setTimeout(()=>nav.hidden=true,250)}
-if(burger&&nav){burger.addEventListener('click',()=>nav.classList.contains('is-open')?close():openNav()); closeNav&&closeNav.addEventListener('click',close); addEventListener('keydown',e=>{if(e.key==='Escape')close()})}
+// header shadow - supports both legacy .site-header and new .uc-header
+const h=$('#siteHeader') || $('.uc-header'); if(h){addEventListener('scroll',()=>{scrollY>8?h.classList.add('is-scrolled'):h.classList.remove('is-scrolled')},{passive:true}); if(scrollY>8) h.classList.add('is-scrolled');}
+// mobile - new uc-header + legacy fallback
+const burger=$('#ucMenuButton') || $('#burger'), nav=$('#mobile-navigation') || $('#mobileNav'), closeNav=$('#closeNav');
+function openNav(){if(!burger||!nav) return; burger.setAttribute('aria-expanded','true'); nav.hidden=false; requestAnimationFrame(()=>nav.classList.add('is-open')); document.body.style.overflow='hidden';}
+function closeNavFn(){if(!burger||!nav) return; const wasOpen=nav.classList.contains('is-open'); burger.setAttribute('aria-expanded','false'); nav.classList.remove('is-open'); document.body.style.overflow=''; if(wasOpen) burger.focus(); const delay=matchMedia('(prefers-reduced-motion: reduce)').matches?0:220; setTimeout(()=>{if(!nav.classList.contains('is-open')) nav.hidden=true;}, delay);}
+if(burger&&nav){
+  burger.addEventListener('click',()=>nav.classList.contains('is-open')?closeNavFn():openNav());
+  closeNav&&closeNav.addEventListener('click',closeNavFn);
+  // close when link inside mobile nav selected
+  [...nav.querySelectorAll('a')].forEach(a=>a.addEventListener('click',()=>closeNavFn()));
+  // Escape
+  addEventListener('keydown',e=>{if(e.key==='Escape' && nav.classList.contains('is-open')){e.preventDefault(); closeNavFn();}});
+  // click outside
+  document.addEventListener('click',e=>{
+    if(!nav.classList.contains('is-open')) return;
+    const header=$('.uc-header')||$('#siteHeader');
+    if(header && header.contains(e.target)) return;
+    if(burger.contains(e.target)) return;
+    if(nav.contains(e.target)) return;
+    closeNavFn();
+  });
+}
 // back to top
 const btt=$('#backToTop'); if(btt){addEventListener('scroll',()=>{scrollY>600?btt.classList.add('is-visible'):btt.classList.remove('is-visible')},{passive:true}); btt.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}))}
 // reveal

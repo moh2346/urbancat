@@ -2,7 +2,7 @@
     <div class="uc-footer__container">
         <div class="uc-footer__grid">
             <div class="uc-footer__brand">
-                <a href="<?= asset('index.php') ?>" aria-label="Urban Cats home"><img src="<?= asset('assets/images/brand/logo-horizontal.svg') ?>" alt="Urban Cats" width="170" height="40" loading="lazy"></a>
+                <a href="<?= asset('index.php') ?>" aria-label="Urban Cats home"><img src="<?= asset('assets/images/branding/urban-cats-logo.svg') ?>" alt="Urban Cats" width="190" height="52" loading="lazy"></a>
 
                 <p class="uc-footer__tagline">
                     Exceptional companions, thoughtfully cared for.

@@ -15,7 +15,7 @@ $canonical=$pageCanonical??canonical_url();
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= asset('assets/css/style.css?v=20250922footer') ?>">
-<link rel="icon" href="<?= asset('assets/images/brand/favicon.svg') ?>" type="image/svg+xml">
+<link rel="stylesheet" href="<?= asset('assets/css/style.css?v=20250923header9') ?>">
+<link rel="icon" href="<?= asset('assets/images/branding/favicon.svg') ?>" type="image/svg+xml">
 <meta name="theme-color" content="#25231f">
 <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js')</script>

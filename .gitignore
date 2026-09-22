@@ -10,3 +10,8 @@
 .env
 .DS_Store
 Thumbs.db
+node_modules/
+screenshot.js
+screenshot_final.js
+package.json
+package-lock.json
